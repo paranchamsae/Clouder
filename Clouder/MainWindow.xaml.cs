@@ -26,9 +26,5 @@ namespace Clouder
             InitializeComponent();
         }
 
-        private void ButtonTestClicked(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("messagebox test");
-        }
     }
 }

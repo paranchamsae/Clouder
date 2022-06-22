@@ -1,23 +1,47 @@
-﻿<Controls:MetroWindow x:Class="Clouder.MainWindow"
+﻿<Controls:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clouder"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:ViewModel="clr-namespace:Clouder.ViewModel" 
+        x:Class="Clouder.MainWindow"
         mc:Ignorable="d"
         Title="Clouder" Height="450" Width="800">
+    <Controls:MetroWindow.DataContext>
+        <ViewModel:MainViewModel/>
+    </Controls:MetroWindow.DataContext>
     <Grid>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="24" Width="136"/>
-        <Button 
-            Content="buttontest" Width="150" Height="50" Style="{DynamicResource MetroCircleButtonStyle}" 
-            Click="ButtonTestClicked" Margin="10,50,640,334" 
-            >
-            <!--<Controls:PackIconModern Width="20" Height="20" Kind="Close" />-->
-        </Button>
-        <CheckBox Content="CheckBox" Style="{DynamicResource MahApps.Styles.Button.MetroSquare}" Height="15" Width="72"/>
-        <ToggleButton Width="100"
-                          Style="{DynamicResource MetroCircleToggleButtonStyle}"
-                          Content="Enabled" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl Style="{DynamicResource MahApps.Styles.TabControl.Animated}" Grid.ColumnSpan="2">
+            <TabItem Header="Dashboard">
+                <StackPanel>
+                    <Controls:ToggleSwitch Height="66" Header="ToggleSwitch" Width="100"/>
+                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
+                    <Button Content="{Binding Path=Num, UpdateSourceTrigger=PropertyChanged}" Command="{Binding IncreaseCommand}">                    </Button>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="아이템2">
+                <StackPanel>
+                    <Label Content="아이템2 #1"/>
+                    <Label Content="아이템2 #2"/>
+                    <Label Content="아이템2 #3"/>
+                    <Label Content="아이템2 #4"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="아이템3">
+                <StackPanel>
+                    <Label Content="아이템3 #1"/>
+                    <Label Content="아이템3 #2"/>
+                    <Label Content="아이템3 #3"/>
+                    <Label Content="아이템3 #4"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Controls:MetroWindow>
