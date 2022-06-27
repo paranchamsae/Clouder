@@ -24,6 +24,9 @@ namespace Clouder
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new ViewModel.MainViewModel();
+
         }
 
     }

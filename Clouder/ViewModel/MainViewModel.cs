@@ -52,7 +52,9 @@ namespace Clouder.ViewModel
         }
 
         private ActionCommand increaseCommand;
+        private ActionCommand testcommand;
         public ICommand IncreaseCommand => increaseCommand ??= new ActionCommand(Increase);
+        public ICommand OnCircleButtonClicked => testcommand ??= new ActionCommand(IncreaseAfter);
 
         private void Increase()
         {
@@ -60,5 +62,10 @@ namespace Clouder.ViewModel
             //System.Windows.MessageBox.Show(Num.ToString());
         }
         
+        private void IncreaseAfter()
+        {
+            Num--;
+            System.Windows.MessageBox.Show(Num.ToString());
+        }
     }
 }
