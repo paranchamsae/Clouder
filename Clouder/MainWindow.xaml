@@ -5,21 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clouder"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
         x:Class="Clouder.MainWindow"
         mc:Ignorable="d"
-        Title="Clouder" Height="450" Width="800">
+        Title="" Height="750" Width="1200">
     
     <Grid>
         <TabControl Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left" 
                     Controls:TabControlHelper.Underlined="SelectedTabItem"
                     Controls:TabControlHelper.UnderlinePlacement="Left"
-                    Controls:TabControlHelper.UnderlineMouseOverBrush="CornflowerBlue"
-                    Grid.ColumnSpan="2" >
+                    Controls:TabControlHelper.UnderlineMouseOverBrush="LightSteelBlue"
+                    Grid.ColumnSpan="3" >
+            <TabItem Margin="0,0,0,0">
+                <TabItem.HeaderTemplate>
+                    <ItemContainerTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <icons:PackIconMaterialLight Kind="Home" Width="35" Height="35" Margin="0,0,5,0"/>
+                        </StackPanel>
+                    </ItemContainerTemplate>
+                </TabItem.HeaderTemplate>
+                <StackPanel>
+                    <TextBlock Text="Dashboard"/>
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem Margin="0,0,0,0">
+                <TabItem.HeaderTemplate>
+                    <ItemContainerTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <icons:PackIconMaterialLight Kind="Cloud" Width="35" Height="35" Margin="0,0,5,0"/>
+                        </StackPanel>
+                    </ItemContainerTemplate>
+                </TabItem.HeaderTemplate>
+                <StackPanel>
+                    <TextBlock Text="CloudAccess" />
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem Margin="0,0,0,0">
+                <TabItem.HeaderTemplate>
+                    <ItemContainerTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <icons:PackIconMaterialLight Kind="Cog" Width="35" Height="35" Margin="0,0,5,0"/>
+                        </StackPanel>
+                    </ItemContainerTemplate>
+                </TabItem.HeaderTemplate>
+                <StackPanel>
+                    <TextBlock Text="AppSettings" />
+                </StackPanel>
+            </TabItem>
             <TabItem Header="Dashboard">
                 <StackPanel>
                     <Button Content="{Binding Path=Num, UpdateSourceTrigger=PropertyChanged}" Command="{Binding OnCircleButtonClicked}" 
-                            x:Name="CircleButton" Style="{DynamicResource MahApps.Styles.Button.Circle}" HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="75">
-                    </Button>
+                            x:Name="CircleButton" Style="{DynamicResource MahApps.Styles.Button.Circle}" HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
                     <TextBlock Text="Status" FontSize="14" FontFamily="맑은 고딕" />
                     <TextBlock Text="0개의 폴더 관리 중" FontSize="14" FontFamily="맑은 고딕" />
                     <TextBlock Text="사용량" FontSize="14" FontFamily="맑은 고딕" />
@@ -29,23 +67,6 @@
                 </StackPanel>
             </TabItem>
 
-            <TabItem Header="아이템2">
-                
-                <StackPanel>
-                    <Label Content="아이템2 #1"/>
-                    <Label Content="아이템2 #2"/>
-                    <Label Content="아이템2 #3"/>
-                    <Label Content="아이템2 #4"/>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="아이템3">
-                <StackPanel>
-                    <Label Content="아이템3 #1"/>
-                    <Label Content="아이템3 #2"/>
-                    <Label Content="아이템3 #3"/>
-                    <Label Content="아이템3 #4"/>
-                </StackPanel>
-            </TabItem>
         </TabControl>
     </Grid>
 </Controls:MetroWindow>
