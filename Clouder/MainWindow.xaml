@@ -4,69 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clouder"
+        xmlns:subview="clr-namespace:Clouder.SubViews"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
         x:Class="Clouder.MainWindow"
         mc:Ignorable="d"
         Title="" Height="750" Width="1200">
-    
-    <Grid>
-        <TabControl Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left" 
-                    Controls:TabControlHelper.Underlined="SelectedTabItem"
-                    Controls:TabControlHelper.UnderlinePlacement="Left"
-                    Controls:TabControlHelper.UnderlineMouseOverBrush="LightSteelBlue"
-                    Grid.ColumnSpan="3" >
-            <TabItem Margin="0,0,0,0">
-                <TabItem.HeaderTemplate>
-                    <ItemContainerTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <icons:PackIconMaterialLight Kind="Home" Width="35" Height="35" Margin="0,0,5,0"/>
-                        </StackPanel>
-                    </ItemContainerTemplate>
-                </TabItem.HeaderTemplate>
-                <StackPanel>
-                    <TextBlock Text="Dashboard"/>
-                </StackPanel>
-            </TabItem>
-            
-            <TabItem Margin="0,0,0,0">
-                <TabItem.HeaderTemplate>
-                    <ItemContainerTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <icons:PackIconMaterialLight Kind="Cloud" Width="35" Height="35" Margin="0,0,5,0"/>
-                        </StackPanel>
-                    </ItemContainerTemplate>
-                </TabItem.HeaderTemplate>
-                <StackPanel>
-                    <TextBlock Text="CloudAccess" />
-                </StackPanel>
-            </TabItem>
-            
-            <TabItem Margin="0,0,0,0">
-                <TabItem.HeaderTemplate>
-                    <ItemContainerTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <icons:PackIconMaterialLight Kind="Cog" Width="35" Height="35" Margin="0,0,5,0"/>
-                        </StackPanel>
-                    </ItemContainerTemplate>
-                </TabItem.HeaderTemplate>
-                <StackPanel>
-                    <TextBlock Text="AppSettings" />
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Dashboard">
-                <StackPanel>
-                    <Button Content="{Binding Path=Num, UpdateSourceTrigger=PropertyChanged}" Command="{Binding OnCircleButtonClicked}" 
-                            x:Name="CircleButton" Style="{DynamicResource MahApps.Styles.Button.Circle}" HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
-                    <TextBlock Text="Status" FontSize="14" FontFamily="맑은 고딕" />
-                    <TextBlock Text="0개의 폴더 관리 중" FontSize="14" FontFamily="맑은 고딕" />
-                    <TextBlock Text="사용량" FontSize="14" FontFamily="맑은 고딕" />
-                    <Controls:ToggleSwitch Height="66" Header="ToggleSwitch" Width="100"/>
-                    <TextBlock TextWrapping="Wrap" Text="TextBlock"/>
-                    <Button Content="{Binding Path=Num, UpdateSourceTrigger=PropertyChanged}" Command="{Binding IncreaseCommand}">                    </Button>
-                </StackPanel>
-            </TabItem>
 
-        </TabControl>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="4">
+            <TabControl>
+                <TabItem Header="dashboard">
+                    <ScrollViewer Margin="2"
+                        HorizontalScrollBarVisibility="Auto"
+                        VerticalScrollBarVisibility="Auto">
+                        <subview:Dashboard DataContext="{Binding}" />
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        
     </Grid>
+
 </Controls:MetroWindow>
