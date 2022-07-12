@@ -12,21 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
 
-namespace Clouder
+namespace Clouder.SubViews
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// CloudAccess.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class CloudAccess : UserControl
     {
-        public MainWindow()
+        public CloudAccess()
         {
             InitializeComponent();
-
-            this.DataContext = new ViewModel.MainViewModel();
         }
-
     }
 }

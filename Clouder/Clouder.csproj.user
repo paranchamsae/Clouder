@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="SubViews\CloudAccess.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="SubViews\Dashboard.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubViews\Identity.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,7 +21,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="SubViews\CloudAccess.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="SubViews\Dashboard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubViews\Identity.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -6,35 +6,28 @@
         xmlns:local="clr-namespace:Clouder"
         xmlns:subview="clr-namespace:Clouder.SubViews"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        x:Class="Clouder.MainWindow"
+        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+    x:Class="Clouder.MainWindow"
         mc:Ignorable="d"
         Title="" Height="750" Width="1200">
-
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="5*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="4">
-            <TabControl>
-                <TabItem Header="dashboard">
-                    <ScrollViewer Margin="2"
-                        HorizontalScrollBarVisibility="Auto"
-                        VerticalScrollBarVisibility="Auto">
-                        <subview:Dashboard DataContext="{Binding}" />
-                    </ScrollViewer>
-                </TabItem>
-            </TabControl>
-        </Grid>
+        <TabControl Style="{DynamicResource MahApps.Styles.TabControl.Animated}" TabStripPlacement="Left">
+            <TabItem Header="Identity" Height="80px">
+                <subview:Identity />
+            </TabItem>
+            <TabItem Header="Dashboard">
+                <subview:Dashboard />
+            </TabItem>
+            <TabItem Header="CloudAccess">
+                <subview:CloudAccess />
+            </TabItem>
+            <TabItem Header="item 3">
+                <TextBlock Text="item 3"></TextBlock>
+            </TabItem>
+            <TabItem Header="item 4">
+                <TextBlock Text="item 4"></TextBlock>
+            </TabItem>
+        </TabControl>
         
     </Grid>
-
 </Controls:MetroWindow>
